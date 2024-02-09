@@ -1,6 +1,6 @@
-const NewContactForm = ({name, email, setName, setEmail, handleSubmit})=>{
+const NewContactForm = ({name, email, setName, setEmail, handleAddContact})=>{
  return(
-   <form onSubmit={(e) => handleSubmit(e)}>
+   <form onSubmit={(e) => handleAddContact(e)}>
      <label name="name">Name</label>
      <br/>
      <input

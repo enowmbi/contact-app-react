@@ -1,9 +1,15 @@
+import {FaTrashAlt} from 'react-icons/fa'
 const ContactListItem = ({contact, handleDeleteContact})=>{
     return(
         <li key={contact.id}>
             <div>{contact.name}</div>
             <div>{contact.email}</div>
-            <button onClick={() => handleDeleteContact(contact.id)}>Delete</button>
+
+            <FaTrashAlt
+                role="button" 
+                tabindex="0" 
+                onClick={() => handleDeleteContact(contact.id)}
+                />
             <hr/>
         </li>
     )

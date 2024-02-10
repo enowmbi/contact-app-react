@@ -4,27 +4,19 @@ import Header from './components/Header'
 import NewContactForm from './components/NewContactForm'
 import ContactList from './components/ContactList'
 import Footer from './components/Footer'
+import {v4 as uuidv4} from 'uuid'
 
 function App() {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
-    const [contacts, setContacts] = useState([
-        {
-            id: 1,
-            name: "Enow Mbi",
-            email: "benowmbi@gmail.com"
-        },
-        {
-            id: 2,
-            name: "Fombo Anita",
-            email: "fombo_anita@gmail.com"
-        }
-    ])
+    const [contacts, setContacts] = useState(JSON.parse(localStorage.getItem('contact-list')) || [])
 
     const handleAddContact =(e)=>{
         e.preventDefault()
-        const newContact = {id: 3, name: name, email: email}
-        setContacts([...contacts, newContact])
+        const newContact = {id: uuidv4(), name: name, email: email}
+        const contactList =[...contacts, newContact]
+        setContacts(contactList)
+        localStorage.setItem('contact-list', JSON.stringify(contactList))
         setName("")
         setEmail("")
     }
@@ -32,6 +24,7 @@ function App() {
     const handleDeleteContact = (id) =>{
         const filteredContacts = contacts.filter((contact) => contact.id!==id)
         setContacts(filteredContacts)
+        localStorage.setItem('contact-list', JSON.stringify(filteredContacts))
     }
 
 

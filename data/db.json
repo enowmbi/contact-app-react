@@ -1,4 +1,19 @@
 {
    "contacts": [
+       {
+           "id": 1,
+           "name": "Enow Mbi",
+           "email": "enow_mbi@gmail.com"
+       },
+       {
+           "id": 2,
+           "name": "Fombo Anita",
+           "email": "anita_fombo@gmail.com"
+       },
+       {
+           "id": 3,
+           "name": "Jane Doe",
+           "email": "jane_doe@gmail.com"
+       }
     ]
 }

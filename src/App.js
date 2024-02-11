@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react'
 import Header from './components/Header'
 import NewContactForm from './components/NewContactForm'
 import SearchContact from './components/SearchContacts'
-import ContactList from './components/ContactList'
+import ContactTable from './components/ContactTable'
 import Footer from './components/Footer'
 import {v4 as uuidv4} from 'uuid'
 
@@ -40,10 +40,8 @@ function App() {
     }
 
     useEffect(()=>{
-      fetchUsers()
+      // fetchUsers()
     },[])
-
-    
 
 
   return (
@@ -68,7 +66,7 @@ function App() {
                setSearchText={setSearchText}
           />
 
-          <ContactList
+          <ContactTable
            contacts={contacts}
            handleEditContact={handleEditContact}
            handleDeleteContact={handleDeleteContact}

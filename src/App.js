@@ -2,6 +2,7 @@ import './App.css';
 import {useState, useEffect} from 'react'
 import Header from './components/Header'
 import NewContactForm from './components/NewContactForm'
+import SearchContact from './components/SearchContacts'
 import ContactList from './components/ContactList'
 import Footer from './components/Footer'
 import {v4 as uuidv4} from 'uuid'
@@ -9,6 +10,7 @@ import {v4 as uuidv4} from 'uuid'
 function App() {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
+    const [searchText, setSearchText] = useState("")
     const [contacts, setContacts] = useState(JSON.parse(localStorage.getItem('contact-list')) || [])
 
     const handleAddContact =(e)=>{
@@ -19,6 +21,10 @@ function App() {
         localStorage.setItem('contact-list', JSON.stringify(contactList))
         setName("")
         setEmail("")
+    }
+
+    const handleEditContact = () => {
+        console.log("calling handle edit")
     }
 
     const handleDeleteContact = (id) =>{
@@ -57,8 +63,14 @@ function App() {
 
           <hr id="main-divider"/>
 
+          <SearchContact
+               searchText={searchText}
+               setSearchText={setSearchText}
+          />
+
           <ContactList
            contacts={contacts}
+           handleEditContact={handleEditContact}
            handleDeleteContact={handleDeleteContact}
           />
       </main>

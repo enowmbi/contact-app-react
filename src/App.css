@@ -57,6 +57,28 @@ header {
    background-color: #282c34;
 }
 
+li article{
+   display: flex;
+   justify-content: space-between;
+   margin-right: 40px;
+   font-size: 15px;
+}
+
+li hr{
+   margin-top: 20px;
+   margin-bottom: 20px;
+   margin-right: 40px;
+   background-color: #282c34;
+}
+
+#search-contacts{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 50%;
+    height: 4vh;
+    font-size: 20px;
+}
+
 .App-link {
   color: #61dafb;
 }

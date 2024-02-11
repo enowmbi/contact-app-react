@@ -46,18 +46,20 @@ function App() {
           title={"Contact Management"}
       />
 
-      <NewContactForm
-          name={name}
-          email={email}
-          setName={setName}
-          setEmail={setEmail}
-          handleAddContact={handleAddContact} 
-      />
+      <main>
+          <NewContactForm
+              name={name}
+              email={email}
+              setName={setName}
+              setEmail={setEmail}
+              handleAddContact={handleAddContact} 
+          />
 
-      <ContactList
-       contacts={contacts}
-       handleDeleteContact={handleDeleteContact}
-      />
+          <ContactList
+           contacts={contacts}
+           handleDeleteContact={handleDeleteContact}
+          />
+      </main>
 
       <Footer />
     </div>

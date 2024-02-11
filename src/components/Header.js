@@ -1,8 +1,7 @@
 const Header = ({title})=>{
     return(
-        <header>
+        <header className="App-header">
             <h1>{title}</h1>
-            <hr/>
         </header>
     )
 }

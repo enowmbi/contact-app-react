@@ -1,4 +1,5 @@
 import ContactListItem from "../components/ContactListItem"
+
 const ContactList = ({contacts, handleDeleteContact})=>{
 return(
    <ul style={{listStyle: "none"}}>

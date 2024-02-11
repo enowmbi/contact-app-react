@@ -24,6 +24,39 @@ header {
   color: white;
 }
 
+#new-contact-form{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#new-contact-form input{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 50%;
+    height: 4vh;
+    font-size: 20px;
+}
+
+#new-contact-form button{
+    height: 4vh;
+    margin-top: 20px;
+    width: 50%;
+    font-size: 20px;
+}
+
+#new-contact-form label{
+    font-size: 20px;
+}
+
+#main-divider{
+   width: 50%;
+   margin-top: 20px;
+   margin-bottom: 20px;
+   height: 5px;
+   background-color: #282c34;
+}
+
 .App-link {
   color: #61dafb;
 }

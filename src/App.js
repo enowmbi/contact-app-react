@@ -55,6 +55,8 @@ function App() {
               handleAddContact={handleAddContact} 
           />
 
+          <hr id="main-divider"/>
+
           <ContactList
            contacts={contacts}
            handleDeleteContact={handleDeleteContact}

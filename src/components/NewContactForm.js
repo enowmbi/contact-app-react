@@ -1,8 +1,7 @@
 const NewContactForm = ({name, email, setName, setEmail, handleAddContact})=>{
  return(
-   <form onSubmit={(e) => handleAddContact(e)}>
+   <form id="new-contact-form" onSubmit={(e) => handleAddContact(e)}>
      <label name="name">Name</label>
-     <br/>
      <input
          type="text"
          placeholder="Enter your name" 
@@ -11,9 +10,7 @@ const NewContactForm = ({name, email, setName, setEmail, handleAddContact})=>{
          value={name} 
          onChange={(e)=>setName(e.target.value)} 
      />
-     <br/>
      <label name="email">Email</label>
-     <br/>
      <input
          type="email" 
          placeholder="Enter your email"
@@ -22,7 +19,6 @@ const NewContactForm = ({name, email, setName, setEmail, handleAddContact})=>{
          value={email}
          onChange={(e) =>setEmail(e.target.value)}
      />
-     <br/>
      <button>Add Contact</button>
      </form>
  ) 

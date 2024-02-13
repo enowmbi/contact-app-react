@@ -5,8 +5,8 @@ const ContactTableRow = ({contact, handleEditContact, handleDeleteContact})=>{
         <tr key={contact.id}>
             <td>{contact.name}</td>
             <td>{contact.email}</td>
-            <td>{<FaPencilAlt role="button" tabindex="0" onClick={() => handleEditContact(contact.id)} />}</td>
-            <td>{<FaTrashAlt role="button" tabindex="1" onClick={() => handleDeleteContact(contact.id)} />}</td>
+            <td>{<FaPencilAlt role="button" tabIndex="0" onClick={() => handleEditContact(contact.id)} />}</td>
+            <td>{<FaTrashAlt role="button" tabIndex="1" onClick={() => handleDeleteContact(contact.id)} />}</td>
         </tr>
     )
 }

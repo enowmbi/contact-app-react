@@ -2,16 +2,33 @@ import './App.css';
 import {useState, useEffect} from 'react'
 import Header from './components/Header'
 import NewContactForm from './components/NewContactForm'
+import EditContactForm from './components/EditContactForm'
 import Home from './components/Home'
 import Footer from './components/Footer'
 import {v4 as uuidv4} from 'uuid'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 
 function App() {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
+    const [editName, setEditName] = useState("")
+    const [editEmail, setEditEmail] = useState("")
     const [searchText, setSearchText] = useState("")
-    const [contacts, setContacts] = useState(JSON.parse(localStorage.getItem('contact-list')) || [])
+    const [searchResults, setSearchResults] = useState([])
+    const [contacts, setContacts] = useState([])
+    const navigate = useNavigate()
+
+    useEffect(()=>{ 
+        setContacts(JSON.parse(localStorage.getItem('contact-list')))
+    },[])
+
+    useEffect(()=>{
+        const filteredContacts = contacts.filter((contact) => contact.name.toLowerCase().includes(searchText.toLowerCase())
+            || contact.email.toLowerCase().includes(searchText.toLowerCase()) )
+
+        setSearchResults(filteredContacts)
+
+    },[searchText, contacts])
 
     const handleAddContact =(e)=>{
         e.preventDefault()
@@ -21,17 +38,17 @@ function App() {
         localStorage.setItem('contact-list', JSON.stringify(contactList))
         setName("")
         setEmail("")
+        navigate("/")
     }
 
     const handleEditContact = (id) => {
-        const contact = contacts.find((contact) => id === contact.id)
-        // setName(contact.name)
-        // setEmail(contact.email)
-        // const updatedContact = {id: id, name: name, email: email}
-        // setContacts(contacts.map((contact) => contact.id === id ? {...updatedContact} : contact))
-        // setName("")
-        // setEmail("")
-        console.log("calling handle edit")
+        const updatedContact = { id: id, name: editName, email: editEmail }
+        const updatedContacts = contacts.map((contact) => contact.id.toString() === id ? { ...updatedContact } : contact )
+        setContacts(updatedContacts)
+        localStorage.setItem('contact-list', JSON.stringify(updatedContacts))
+        setEditName("")
+        setEditEmail("")
+        navigate("/")
     }
 
     const handleDeleteContact = (id) =>{
@@ -40,15 +57,6 @@ function App() {
         localStorage.setItem('contact-list', JSON.stringify(filteredContacts))
     }
 
-    const fetchUsers = async () => {
-        const response = await fetch('https://jsonplaceholder.typicode.com/users')
-        const data = await response.json()
-        setContacts(data)
-    }
-
-    useEffect(()=>{
-      // fetchUsers()
-    },[])
 
 
   return (
@@ -62,9 +70,11 @@ function App() {
               <Route 
                   path="/"
                   element={<Home
-                            contacts={contacts}
-                            searchText={searchText}
-                            setSearchText={setSearchText}
+                             contacts={searchResults}
+                             searchText={searchText}
+                             setSearchText={setSearchText}
+                             handleEditContact={handleEditContact}
+                             handleDeleteContact={handleDeleteContact}
                           />
                       } 
               />
@@ -77,6 +87,19 @@ function App() {
                               setName={setName}
                               setEmail={setEmail}
                               handleAddContact={handleAddContact} 
+                          />
+                     } 
+              />
+
+              <Route 
+                  path="/contacts/:id/edit"
+                  element={<EditContactForm
+                              editName={editName}
+                              editEmail={editEmail}
+                              setEditName={setEditName}
+                              setEditEmail={setEditEmail}
+                              contacts={contacts}
+                              handleEditContact={handleEditContact} 
                           />
                      } 
               />

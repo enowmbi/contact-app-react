@@ -16,7 +16,6 @@ return(
                       <ContactTableRow 
                        key={contact.id}
                        contact={contact}
-                       handleEditContact={handleEditContact}
                        handleDeleteContact={handleDeleteContact}
                       />
                   )

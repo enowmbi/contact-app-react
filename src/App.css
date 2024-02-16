@@ -49,13 +49,13 @@ header {
     color: #282c34;
 }
 
-#new-contact-form{
+#new-contact-form, #edit-contact-form{
     align-items: center;
     display: flex;
     flex-direction: column;
 }
 
-#new-contact-form input{
+#new-contact-form input, #edit-contact-form input{
     margin-top: 5px;
     margin-bottom: 10px;
     width: 50%;
@@ -63,14 +63,14 @@ header {
     font-size: 20px;
 }
 
-#new-contact-form button{
+#new-contact-form button, #edit-contact-form button{
     height: 4vh;
     margin-top: 20px;
     width: 50%;
     font-size: 20px;
 }
 
-#new-contact-form label{
+#new-contact-form label, #edit-contact-form label{
     font-size: 20px;
 }
 

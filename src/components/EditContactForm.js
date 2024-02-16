@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 
 const EditContactForm = ({ editName, setEditName, editEmail, setEditEmail, contacts, handleEditContact })=>{
     const { id } = useParams()
@@ -15,6 +15,7 @@ const EditContactForm = ({ editName, setEditName, editEmail, setEditEmail, conta
 
     return(
         <form id="edit-contact-form" onSubmit={(e) => e.preventDefault()}>
+            <h2>Edit Contact Form</h2>
             <label name="name">Name</label>
             <input
                 type="text"
@@ -36,6 +37,9 @@ const EditContactForm = ({ editName, setEditName, editEmail, setEditEmail, conta
             />
 
             <button onClick={()=> handleEditContact(id)}>Update Contact</button>
+            <p>
+                <Link to="/">Back to Home</Link>
+            </p>
         </form>
     ) 
 }

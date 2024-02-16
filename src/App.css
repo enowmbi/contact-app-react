@@ -74,6 +74,10 @@ header {
     font-size: 20px;
 }
 
+#new-contact-form h2, #edit-contact-form h2{
+    text-decoration: underline;
+}
+
 #main-divider{
    width: 50%;
    margin-top: 10px;

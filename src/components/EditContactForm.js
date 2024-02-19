@@ -4,7 +4,6 @@ import { useParams, Link } from 'react-router-dom'
 const EditContactForm = ({ editName, setEditName, editEmail, setEditEmail, contacts, handleEditContact })=>{
     const { id } = useParams()
     const contact = contacts.find((contact) => contact.id.toString() === id)
-    console.log("trying to edit contact form")
 
     useEffect(() =>{
         if(contact){

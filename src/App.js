@@ -57,8 +57,6 @@ function App() {
         localStorage.setItem('contact-list', JSON.stringify(filteredContacts))
     }
 
-
-
   return (
     <div className="App">
       <Header
